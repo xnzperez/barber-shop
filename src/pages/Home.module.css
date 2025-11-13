@@ -1,0 +1,183 @@
+/* src/pages/HomePage.module.css */
+
+/* Contenedor principal */
+.homeContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  overflow-x: hidden;
+}
+
+/* --- HERO SECTION --- */
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 85vh; /* Ocupa casi toda la pantalla */
+  gap: 4rem;
+  padding: 4rem 0;
+}
+
+.heroText {
+  flex: 1;
+  max-width: 600px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  /* Degradado dorado para el texto */
+  background: linear-gradient(to right, #ffffff, #D4AF37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary, #a0a0a0); /* Usa variable o fallback */
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Botones */
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.buttonPrimary {
+  background-color: var(--primary-color, #D4AF37);
+  color: #000;
+  border: 2px solid var(--primary-color, #D4AF37);
+}
+
+.buttonPrimary:hover {
+  background-color: transparent;
+  color: var(--primary-color, #D4AF37);
+  transform: translateY(-3px);
+}
+
+.buttonSecondary {
+  background-color: transparent;
+  color: var(--text-color, #fff);
+  border: 2px solid var(--border-color, #333);
+}
+
+.buttonSecondary:hover {
+  border-color: var(--primary-color, #D4AF37);
+  color: var(--primary-color, #D4AF37);
+}
+
+/* Imagen del Hero */
+.heroImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  /* Efecto sutil de flotación */
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- SECCIÓN "POR QUÉ ELEGIRNOS" --- */
+.whyChooseUsSection {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary-color, #D4AF37);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid Responsivo Automático */
+  gap: 2rem;
+}
+
+.featureCard {
+  background-color: var(--card-bg-color, #1e1e1e);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color, #333);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-color, #D4AF37);
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color, #fff);
+}
+
+.featureCard p {
+  color: var(--text-secondary, #a0a0a0);
+  line-height: 1.5;
+}
+
+.themeInfo {
+  text-align: center;
+  margin-top: 2rem;
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE (MÓVIL) --- */
+@media (max-width: 968px) {
+  .heroSection {
+    flex-direction: column-reverse; /* Texto abajo, imagen arriba en móvil */
+    text-align: center;
+    padding-top: 2rem;
+    gap: 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroActions {
+    justify-content: center;
+  }
+
+  .heroImage {
+    max-width: 80%;
+  }
+}

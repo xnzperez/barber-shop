@@ -1,0 +1,142 @@
+/* Contenedor principal dividido */
+.splitContainer {
+  display: flex;
+  width: 100%;                    /* Ocupa todo el ancho */
+  min-height: calc(100vh - 80px); /* Altura total menos el navbar */
+  overflow: hidden;               /* Evita barras de scroll extrañas */
+}
+
+/* --- LADO IZQUIERDO (IMAGEN) --- */
+.imageSide {
+  display: none;                  /* Oculto en móviles por defecto */
+  flex: 1;                        /* Ocupa el 50% */
+  position: relative;
+  /* Imagen de barbería profesional */
+  background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Capa degradada sobre la imagen para que se funda con el fondo oscuro */
+.imageSide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.3), var(--bg-color, #121212));
+}
+
+/* --- LADO DERECHO (FORMULARIO) --- */
+.formSide {
+  flex: 1;                        /* Ocupa el otro 50% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--bg-color, #121212);
+  width: 100%;
+}
+
+/* Tarjeta que contiene los inputs (limita el ancho para que no se vea gigante) */
+.authCard {
+  width: 100%;
+  max-width: 400px; /* Ancho máximo elegante */
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #fff);
+  font-weight: 800;
+}
+
+.subtitle {
+  color: var(--text-secondary, #a0a0a0);
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Estilos de los campos */
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary, #a0a0a0);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--input-bg, #2c2c2c);
+  border: 1px solid var(--border-color, #333);
+  border-radius: 8px;
+  color: var(--text-color, #fff);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  border-color: var(--primary-color, #D4AF37);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2); /* Resplandor dorado suave */
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary-color, #D4AF37);
+  color: #000;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  margin-top: 1rem;
+}
+
+.submitBtn:hover {
+  background-color: #b5952f; /* Un tono más oscuro al pasar el mouse */
+  transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.linkText {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--text-secondary, #a0a0a0);
+  font-size: 0.9rem;
+}
+
+.link {
+  color: var(--primary-color, #D4AF37);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* --- RESPONSIVE (PC y Tablets) --- */
+@media (min-width: 900px) {
+  .imageSide {
+    display: block; /* Muestra la imagen solo si la pantalla es ancha */
+  }
+}

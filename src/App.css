@@ -1,0 +1,28 @@
+/* src/App.css */
+:root {
+  --primary-color: #D4AF37;
+  --bg-color: #121212;
+  --card-bg-color: #1e1e1e;
+  --text-color: #ffffff;
+  --text-secondary: #a0a0a0;
+  --border-color: #333333;
+  --input-bg: #2c2c2c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  width: 100%;
+}
+
+/* Importante para que el contenido no se quede pegado a los bordes en pantallas gigantes */
+.container {
+  width: 100%;
+  /* Quitamos el padding fijo que podría estar molestando */
+}
