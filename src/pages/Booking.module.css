@@ -7,14 +7,14 @@
   padding: 2rem;
   position: relative;
   /* Fondo elegante con imagen de barbería */
-  background-image: url('https://images.unsplash.com/photo-1503951914875-befbb7470d03?q=80&w=2070&auto=format&fit=crop');
+  background-image: url("https://images.unsplash.com/photo-1503951914875-befbb7470d03?q=80&w=2070&auto=format&fit=crop");
   background-size: cover;
   background-position: center;
 }
 
 /* Capa oscura encima de la imagen */
 .container::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.7); /* Oscuro para resaltar el formulario */
@@ -23,10 +23,10 @@
 
 .card {
   position: relative; /* Para que esté encima del overlay */
-  background-color: var(--card-bg-color, #1e1e1e);
+  background-color: var(--card-bg-color);
   padding: 2.5rem;
-  border-radius: 16px;
-  border: 1px solid var(--border-color, #333);
+  border-radius: 0; /* Sharp Cut styling */
+  border: 1px solid var(--border-subtle);
   width: 100%;
   max-width: 600px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -34,7 +34,7 @@
 
 .title {
   font-size: 2rem;
-  color: var(--primary-color, #D4AF37);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
   text-align: center;
   text-transform: uppercase;
@@ -42,7 +42,7 @@
 }
 
 .subtitle {
-  color: var(--text-secondary, #a0a0a0);
+  color: var(--text-secondary);
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -54,50 +54,84 @@
 .label {
   display: block;
   margin-bottom: 0.5rem;
-  color: var(--text-secondary, #a0a0a0);
-  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.select, .input {
+.select,
+.input {
   width: 100%;
   padding: 1rem;
-  background-color: var(--input-bg, #2c2c2c);
-  border: 1px solid var(--border-color, #333);
-  border-radius: 8px;
-  color: var(--text-color, #fff);
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0; /* Sharp inputs */
+  color: var(--text-primary);
   font-size: 1rem;
   outline: none;
   appearance: none; /* Quita estilo por defecto del select */
 }
 
-.select:focus, .input:focus {
-  border-color: var(--primary-color, #D4AF37);
-  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+.select:focus,
+.input:focus {
+  border-color: var(--border-emphasis);
+  box-shadow: none; /* Whisper quiet, no glowing blobs */
 }
 
 .submitBtn {
   width: 100%;
   padding: 1.2rem;
-  background-color: var(--primary-color, #D4AF37);
-  color: #000;
-  font-weight: 800;
-  border: none;
-  border-radius: 8px;
+  background-color: transparent;
+  color: var(--primary-color);
+  font-weight: 600;
+  border: 1px solid var(--primary-color);
+  border-radius: 0;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-top: 1rem;
-  transition: transform 0.2s;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.submitBtn:hover { transform: translateY(-2px); }
-.submitBtn:disabled { opacity: 0.7; cursor: not-allowed; }
+.submitBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: left;
+  z-index: -1;
+}
+
+.submitBtn:hover::before {
+  transform: scaleX(0);
+}
+
+.submitBtn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
 
 /* Mensaje de éxito */
 .successMessage {
   text-align: center;
   padding: 2rem;
 }
-.successIcon { font-size: 4rem; display: block; margin-bottom: 1rem; }
+.successIcon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}

@@ -4,8 +4,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--bg-color, #121212); /* Asegura fondo sólido */
-  border-bottom: 1px solid var(--border-color, #333);
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-subtle);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -14,11 +14,12 @@
 
 .logo {
   font-size: 1.5rem;
+  font-family: "Playfair Display", serif;
   font-weight: 800;
-  color: var(--primary-color, #D4AF37);
+  color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-decoration: none; /* Quita subrayado si usas Link */
+  text-decoration: none;
 }
 
 .navLinks {
@@ -29,30 +30,36 @@
 
 .link {
   text-decoration: none;
-  color: var(--text-color, #fff);
+  color: var(--text-secondary);
   font-weight: 500;
   transition: color 0.3s ease;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .link:hover {
-  color: var(--primary-color, #D4AF37);
+  color: var(--text-primary);
 }
 
 .logoutBtn {
   background: transparent;
-  border: 1px solid var(--border-color, #555);
-  color: var(--text-color, #fff);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 0px; /* Sharp edges */
   cursor: pointer;
   font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
 }
 
 .logoutBtn:hover {
-  border-color: var(--primary-color, #D4AF37);
-  color: var(--primary-color, #D4AF37);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #000;
 }
 
 .themeBtn {

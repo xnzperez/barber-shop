@@ -1,39 +1,39 @@
 /* Contenedor principal dividido */
 .splitContainer {
   display: flex;
-  width: 100%;                    /* Ocupa todo el ancho */
+  width: 100%; /* Ocupa todo el ancho */
   min-height: calc(100vh - 80px); /* Altura total menos el navbar */
-  overflow: hidden;               /* Evita barras de scroll extrañas */
+  overflow: hidden; /* Evita barras de scroll extrañas */
 }
 
 /* --- LADO IZQUIERDO (IMAGEN) --- */
 .imageSide {
-  display: none;                  /* Oculto en móviles por defecto */
-  flex: 1;                        /* Ocupa el 50% */
+  display: none; /* Oculto en móviles por defecto */
+  flex: 1; /* Ocupa el 50% */
   position: relative;
   /* Imagen de barbería profesional */
-  background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop');
+  background-image: url("https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop");
   background-size: cover;
   background-position: center;
 }
 
 /* Capa degradada sobre la imagen para que se funda con el fondo oscuro */
 .imageSide::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.3), var(--bg-color, #121212));
+  background: linear-gradient(to right, rgba(12, 11, 10, 0.5), var(--bg-color));
 }
 
 /* --- LADO DERECHO (FORMULARIO) --- */
 .formSide {
-  flex: 1;                        /* Ocupa el otro 50% */
+  flex: 1; /* Ocupa el otro 50% */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background-color: var(--bg-color, #121212);
+  background-color: var(--bg-color);
   width: 100%;
 }
 
@@ -46,12 +46,12 @@
 .title {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: var(--text-color, #fff);
+  color: var(--text-primary);
   font-weight: 800;
 }
 
 .subtitle {
-  color: var(--text-secondary, #a0a0a0);
+  color: var(--text-secondary);
   margin-bottom: 2.5rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -65,7 +65,7 @@
 .label {
   display: block;
   margin-bottom: 0.5rem;
-  color: var(--text-secondary, #a0a0a0);
+  color: var(--text-secondary);
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -75,39 +75,61 @@
 .input {
   width: 100%;
   padding: 1rem;
-  background-color: var(--input-bg, #2c2c2c);
-  border: 1px solid var(--border-color, #333);
-  border-radius: 8px;
-  color: var(--text-color, #fff);
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0;
+  color: var(--text-primary);
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .input:focus {
-  border-color: var(--primary-color, #D4AF37);
-  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2); /* Resplandor dorado suave */
+  border-color: var(--border-emphasis);
+  box-shadow: none;
 }
 
 .submitBtn {
   width: 100%;
   padding: 1rem;
-  background-color: var(--primary-color, #D4AF37);
-  color: #000;
-  font-weight: 700;
-  border: none;
-  border-radius: 8px;
+  background-color: transparent;
+  color: var(--primary-color);
+  font-weight: 600;
+  border: 1px solid var(--primary-color);
+  border-radius: 0;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  letter-spacing: 1.5px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.submitBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: left;
+  z-index: -1;
+}
+
+.submitBtn:hover::before {
+  transform: scaleX(0);
 }
 
 .submitBtn:hover {
-  background-color: #b5952f; /* Un tono más oscuro al pasar el mouse */
-  transform: translateY(-2px);
+  background-color: transparent;
+  color: var(--primary-color);
 }
 
 .submitBtn:disabled {
@@ -119,12 +141,12 @@
 .linkText {
   margin-top: 2rem;
   text-align: center;
-  color: var(--text-secondary, #a0a0a0);
+  color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
 .link {
-  color: var(--primary-color, #D4AF37);
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
   margin-left: 5px;

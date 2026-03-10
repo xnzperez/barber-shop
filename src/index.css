@@ -1,11 +1,14 @@
 /* src/index.css */
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:
+    "Outfit",
+    system-ui,
+    -apple-system,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  
-  color-scheme: light dark;
-  background-color: #121212; /* Fondo oscuro base */
+
+  color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -25,6 +28,17 @@ body {
   margin: 0;
   padding: 0;
   /* ELIMINAMOS EL MAX-WIDTH Y EL TEXT-ALIGN QUE TRAÍA VITE */
-  max-width: none; 
+  max-width: none;
   text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }

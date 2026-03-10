@@ -1,12 +1,26 @@
 /* src/App.css */
 :root {
-  --primary-color: #D4AF37;
-  --bg-color: #121212;
-  --card-bg-color: #1e1e1e;
-  --text-color: #ffffff;
-  --text-secondary: #a0a0a0;
-  --border-color: #333333;
-  --input-bg: #2c2c2c;
+  /* Color World: Onyx & Brass */
+  --bg-color: #0c0b0a; /* Deep warm charcoal */
+  --card-bg-color: #141210; /* Surface elevation 1 */
+  --card-bg-hover: #1a1714; /* Surface elevation 2 */
+
+  --primary-color: #d4af37; /* Aged Brass / Gold */
+  --primary-hover: #e5c158;
+
+  /* Text Hierarchy */
+  --text-primary: #fdfdfc;
+  --text-secondary: #a8a49c; /* Steel / Warm gray */
+  --text-muted: #6b665f;
+
+  /* Borders & Separation */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.08); /* Replaces #333 */
+  --border-emphasis: rgba(212, 175, 55, 0.15); /* Gold alpha */
+
+  /* Controls */
+  --input-bg: #0f0d0b;
+  --input-border: rgba(255, 255, 255, 0.1);
 }
 
 * {

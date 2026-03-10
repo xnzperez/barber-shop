@@ -14,14 +14,14 @@
 
 .title {
   font-size: 3rem;
-  color: var(--primary-color, #D4AF37);
+  color: var(--text-primary);
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .subtitle {
-  color: var(--text-secondary, #a0a0a0);
+  color: var(--text-secondary);
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto;
@@ -30,37 +30,42 @@
 /* --- GRID DE TARJETAS --- */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Mágico: Se ajusta solo */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Mágico: Se ajusta solo */
   gap: 2rem;
 }
 
 .card {
-  background-color: var(--card-bg-color, #1e1e1e);
-  border: 1px solid var(--border-color, #333);
-  border-radius: 16px;
-  padding: 2rem;
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
   position: relative;
   overflow: hidden;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: var(--primary-color, #D4AF37);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border-color: var(--border-emphasis);
+  background-color: var(--card-bg-hover);
 }
 
 /* Línea decorativa arriba de la tarjeta */
 .card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 4px;
-  background: var(--primary-color, #D4AF37);
+  background: var(--primary-color);
   transform: scaleX(0);
   transition: transform 0.3s ease;
   transform-origin: left;
@@ -80,21 +85,21 @@
 .serviceName {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-color, #fff);
+  color: var(--text-primary);
   margin: 0;
 }
 
 .duration {
   font-size: 0.85rem;
-  color: var(--text-secondary, #a0a0a0);
-  background: rgba(255,255,255,0.05);
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
   padding: 4px 8px;
   border-radius: 4px;
   white-space: nowrap;
 }
 
 .description {
-  color: var(--text-secondary, #a0a0a0);
+  color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 2rem;
@@ -106,30 +111,49 @@
   justify-content: space-between;
   align-items: center;
   margin-top: auto; /* Se pega al fondo */
-  border-top: 1px solid var(--border-color, #333);
+  border-top: 1px solid var(--border-subtle);
   padding-top: 1.5rem;
 }
 
 .price {
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--primary-color, #D4AF37);
+  color: var(--primary-color);
 }
 
 .bookBtn {
   padding: 0.8rem 1.5rem;
   background-color: transparent;
-  border: 1px solid var(--text-color, #fff);
-  color: var(--text-color, #fff);
-  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 0;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bookBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: left;
+  z-index: -1;
+}
+
+.bookBtn:hover::before {
+  transform: scaleX(0);
 }
 
 .bookBtn:hover {
-  background-color: var(--primary-color, #D4AF37);
-  border-color: var(--primary-color, #D4AF37);
-  color: #000;
+  background-color: transparent;
+  color: var(--primary-color);
 }
